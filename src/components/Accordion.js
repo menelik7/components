@@ -22,7 +22,11 @@ export default function Accordion({ items }) {
 					onClick={() => handleClick(index)}
 				>
 					<div>{item.label}</div>
-					<div className={`text-2xl ${isExpanded ? "expanded" : "collapsed"}`}>
+					<div
+						className={`text-2xl ${
+							isExpanded ? "expanded-icon" : "collapsed-icon"
+						}`}
+					>
 						<GoChevronRight />
 					</div>
 				</div>

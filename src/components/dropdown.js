@@ -1,9 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Panel from "./Panel";
 import { GoChevronRight } from "react-icons/go";
 
 export default function Dropdown({ options, value, onChange }) {
 	const [isOpen, setIsOpen] = useState(false);
+
+	// TODO animation on close
+
+	const divEl = useRef();
+
+	useEffect(() => {
+		const handler = (event) => {
+			if (!divEl.current) return;
+
+			if (!divEl.current.contains(event.target)) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener("click", handler, true);
+
+		return () => {
+			document.removeEventListener("click", handler);
+		};
+	}, []);
 
 	const handleClick = () => {
 		setIsOpen(!isOpen);
@@ -27,18 +47,24 @@ export default function Dropdown({ options, value, onChange }) {
 	});
 
 	return (
-		<div className="w-48 relative">
+		<div ref={divEl} className="w-48 relative">
 			<Panel
 				className="flex justify-between items-center cursor-pointer"
 				onClick={handleClick}
 			>
 				{value?.label || "Select..."}
-				<div className={`text-xl ${isOpen ? "expanded" : "collapsed"}`}>
+				<div
+					className={`text-xl ${isOpen ? "expanded-icon" : "collapsed-icon"}`}
+				>
 					<GoChevronRight />
 				</div>
 			</Panel>
 
-			{isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
+			{isOpen && (
+				<Panel className="absolute top-full expanded-dropdown">
+					{renderedOptions}
+				</Panel>
+			)}
 		</div>
 	);
 }

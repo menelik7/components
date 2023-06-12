@@ -6,11 +6,46 @@ button > svg {
 	margin-right: 5px;
 }
 
-.expanded {
-	transform: rotate(90deg);
-	transition-duration: 150ms;
+.expanded-dropdown {
+	animation: 0.3s ease-in-out forwards expanded;
+	transform-origin: 50% 0%;
+}
+@keyframes expanded {
+	0% {
+		transform: scaleY(0);
+	}
+
+	100% {
+		transform: scaleY(1);
+	}
 }
 
-.collapsed {
-	transition-duration: 150ms;
+/* .collapsed-dropdown {
+	animation: collapsed 0.3s ease-in-out forwards;
+}
+@keyframes collapsed {
+	0% {
+		transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(0);
+	}
+}
+
+@-webkit-keyframes collapsed {
+	0% {
+		-webkit-transform: scaleY(1);
+	}
+	100% {
+		-webkit-transform: scaleY(0);
+	}
+} */
+
+.expanded-icon {
+	transform: rotate(90deg);
+	transition-duration: 300ms;
+}
+
+.collapsed-icon {
+	transition-duration: 300ms;
 }
