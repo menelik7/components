@@ -8,9 +8,9 @@ button > svg {
 
 .expanded {
 	transform: rotate(90deg);
-	transition-duration: 250ms;
+	transition-duration: 150ms;
 }
 
 .collapsed {
-	transition-duration: 250ms;
+	transition-duration: 150ms;
 }
