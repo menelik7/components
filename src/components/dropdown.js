@@ -37,7 +37,7 @@ export default function Dropdown({ options, value, onChange }) {
 	const renderedOptions = options.map((option) => {
 		return (
 			<div
-				className="hover:bg-sky-100 rounded cursor-pointer p-1"
+				className="hover:bg-sky-100 rounded cursor-pointer p-3"
 				onClick={() => handleOptionclick(option)}
 				key={option.value}
 			>
@@ -61,7 +61,7 @@ export default function Dropdown({ options, value, onChange }) {
 			</Panel>
 
 			{isOpen && (
-				<Panel className="absolute top-full expanded-dropdown">
+				<Panel className="absolute top-full expanded-dropdown p-0">
 					{renderedOptions}
 				</Panel>
 			)}
