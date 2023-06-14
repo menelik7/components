@@ -5,31 +5,31 @@ function ButtonPage() {
 	return (
 		<div>
 			<div>
-				<Button secondary outline rounded className="mb-5">
+				<Button secondary outline rounded className="mb-2">
 					<GoBell />
-					Click me!!
+					Click me
 				</Button>
 			</div>
 			<div>
 				<Button danger outline>
 					<GoCloudDownload />
-					Buy Now!
+					Download
 				</Button>
 			</div>
 			<div>
 				<Button warning>
 					<GoDatabase />
-					See Deal!
+					Database
 				</Button>
 			</div>
 			<div>
 				<Button secondary outline>
-					Hide Ads!
+					Hide Ads
 				</Button>
 			</div>
 			<div>
 				<Button primary rounded>
-					Something!
+					Something
 				</Button>
 			</div>
 		</div>
