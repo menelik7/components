@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Panel from "./Panel";
-import { GoChevronRight } from "react-icons/go";
+import { GoChevronDown } from "react-icons/go";
 
 export default function Dropdown({ options, value, onChange }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -56,12 +56,12 @@ export default function Dropdown({ options, value, onChange }) {
 				<div
 					className={`text-xl ${isOpen ? "expanded-icon" : "collapsed-icon"}`}
 				>
-					<GoChevronRight />
+					<GoChevronDown />
 				</div>
 			</Panel>
 
 			{isOpen && (
-				<Panel className="absolute top-full expanded-dropdown p-0">
+				<Panel className="absolute top-full options expanded-dropdown p-0">
 					{renderedOptions}
 				</Panel>
 			)}

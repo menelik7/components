@@ -8,7 +8,7 @@ button > svg {
 
 .expanded-dropdown {
 	animation: 0.3s ease-in-out forwards expanded;
-	transform-origin: 50% 0%;
+	transform-origin: 100% 0%;
 }
 @keyframes expanded {
 	0% {
@@ -42,7 +42,7 @@ button > svg {
 } */
 
 .expanded-icon {
-	transform: rotate(90deg);
+	transform: rotate(-180deg);
 	transition-duration: 300ms;
 }
 

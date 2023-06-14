@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GoChevronRight } from "react-icons/go";
+import { GoChevronDown } from "react-icons/go";
 
 export default function Accordion({ items }) {
 	const [expandedIndex, setExpandedIndex] = useState(-1);
@@ -27,12 +27,10 @@ export default function Accordion({ items }) {
 							isExpanded ? "expanded-icon" : "collapsed-icon"
 						}`}
 					>
-						<GoChevronRight />
+						<GoChevronDown />
 					</div>
 				</div>
-				{isExpanded && (
-					<div className="border-b p-5 active">{item.content}</div>
-				)}
+				{isExpanded && <div className="border-b p-5">{item.content}</div>}
 			</div>
 		);
 	});
