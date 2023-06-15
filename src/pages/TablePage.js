@@ -1,4 +1,5 @@
-import Table from "../components/Table";
+// import Table from "../components/Table";
+import SortableTable from "../components/SortableTable";
 
 export default function TablePage() {
 	const data = [
@@ -25,9 +26,13 @@ export default function TablePage() {
 	];
 
 	const config = [
+		// Even though the render() and sortValue() functions look exactly the same at first glance, there are
+		// scenarios where the render function might want to return a jsx element or something else
+		// which would negatively affect out sort function if it were to be used in place of sortValue
 		{
 			label: "Name",
 			render: ({ name }) => name,
+			sortValue: ({ name }) => name,
 		},
 		{
 			label: "Color",
@@ -36,6 +41,7 @@ export default function TablePage() {
 		{
 			label: "Score",
 			render: ({ score }) => score,
+			sortValue: ({ score }) => score,
 		},
 	];
 
@@ -43,5 +49,5 @@ export default function TablePage() {
 		return rowData.name;
 	};
 
-	return <Table data={data} config={config} keyFn={keyFn} />;
+	return <SortableTable data={data} config={config} keyFn={keyFn} />;
 }
