@@ -11,11 +11,21 @@ button > svg {
 	margin-right: 5px;
 }
 
-.expanded-dropdown {
-	animation: 0.3s ease-in-out forwards expanded;
-	transform-origin: 100% 0%;
+.open-accordion {
+	height: 88px;
+	transition: 0.3s;
 }
-@keyframes expanded {
+
+.close-accordion {
+	height: 0;
+	transition: 0.3s;
+}
+
+.expanded {
+	animation: 0.25s ease-in-out forwards expand;
+	transform-origin: 50% 0%;
+}
+@keyframes expand {
 	0% {
 		transform: scaleY(0);
 	}
@@ -25,26 +35,19 @@ button > svg {
 	}
 }
 
-/* .collapsed-dropdown {
-	animation: collapsed 0.3s ease-in-out forwards;
+.collapsed {
+	animation: 0.25s ease-in-out forwards collapse;
+	transform-origin: 50% 0%;
 }
-@keyframes collapsed {
+@keyframes collapse {
 	0% {
 		transform: scaleY(1);
 	}
+
 	100% {
 		transform: scaleY(0);
 	}
 }
-
-@-webkit-keyframes collapsed {
-	0% {
-		-webkit-transform: scaleY(1);
-	}
-	100% {
-		-webkit-transform: scaleY(0);
-	}
-} */
 
 .expanded-icon {
 	transform: rotate(-180deg);
