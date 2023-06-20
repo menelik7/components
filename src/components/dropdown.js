@@ -61,7 +61,7 @@ export default function Dropdown({ options, value, onChange }) {
 			</Panel>
 
 			{isOpen && (
-				<Panel className="absolute top-full options expanded-dropdown !p-0">
+				<Panel className="absolute top-full options expanded !p-0">
 					{renderedOptions}
 				</Panel>
 			)}

@@ -6,6 +6,7 @@ const INCREMENT_COUNT = "increment";
 const DECREMENT_COUNT = "decrement";
 const SET_VALUE_TO_ADD = "set-value-to-add";
 const ADD_VALUE_TO_COUNT = "add-value-to-add";
+const RESET_COUNT = "reset";
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -18,6 +19,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				count: state.count - 1,
+			};
+		case RESET_COUNT:
+			return {
+				...state,
+				count: 0,
 			};
 		case SET_VALUE_TO_ADD:
 			return {
@@ -53,6 +59,12 @@ export default function CounterPage({ initialCount }) {
 		});
 	};
 
+	const reset = () => {
+		dispatch({
+			type: RESET_COUNT,
+		});
+	};
+
 	const handleChange = (event) => {
 		const value = parseInt(event.target.value) || 0;
 
@@ -72,10 +84,17 @@ export default function CounterPage({ initialCount }) {
 
 	return (
 		<Panel className="m-3">
-			<h1 className="text-lg">Count is {state.count}</h1>
-			<div className="flex flex-row">
-				<Button onClick={increment}>Increment</Button>
-				<Button onClick={decrement}>Decrement</Button>
+			<h1 className="text-lg mb-3">Count is: {state.count}</h1>
+			<div className="flex flex-row gap-2">
+				<Button primary onClick={increment}>
+					Increment
+				</Button>
+				<Button secondary outline onClick={decrement}>
+					Decrement
+				</Button>
+				<Button danger onClick={reset}>
+					Reset
+				</Button>
 			</div>
 
 			<form onSubmit={handleSubmit}>
@@ -86,7 +105,9 @@ export default function CounterPage({ initialCount }) {
 					type="number"
 					className="p-1 m-3 bg-gray-50 border border-gray-300"
 				/>
-				<Button>Add it</Button>
+				<Button success type="submit">
+					Add
+				</Button>
 			</form>
 		</Panel>
 	);

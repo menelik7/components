@@ -18,7 +18,7 @@ export default function Accordion({ items }) {
 		return (
 			<div key={item.id}>
 				<div
-					className="flex justify-between items-center p-3 bg-gray-50 border-b cursor-pointer"
+					className="flex justify-between items-center p-3 bg-gray-50 border-b border-x cursor-pointer"
 					onClick={() => handleClick(index)}
 				>
 					<div>{item.label}</div>
@@ -30,10 +30,19 @@ export default function Accordion({ items }) {
 						<GoChevronDown />
 					</div>
 				</div>
-				{isExpanded && <div className="border-b p-5">{item.content}</div>}
+
+				<div
+					className={`border-x border-b h-0 ${
+						isExpanded
+							? "open-accordion expanded"
+							: "close-accordion collapsed invisible opacity-100"
+					}`}
+				>
+					<div className="p-5">{item.content}</div>
+				</div>
 			</div>
 		);
 	});
 
-	return <div className="border-x border-t rounded">{renderedItems}</div>;
+	return <div className="border-t rounded">{renderedItems}</div>;
 }
