@@ -5,7 +5,7 @@ import { GoChevronDown } from "react-icons/go";
 export default function Dropdown({ options, value, onChange }) {
 	const [isOpen, setIsOpen] = useState(false);
 
-	// TODO animation on close
+	// TODO maybe add collapse for closing animation
 
 	const divEl = useRef();
 
